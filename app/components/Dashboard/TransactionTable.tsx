@@ -25,8 +25,8 @@ export default function TransactionTable({ data }: Props) {
   };
 
   const handleOpenModal = (id: any) => {
-    setModalOpen(true);
     setTransactionId(id);
+    setModalOpen(true);
   };
 
   const handleModaOpenDelete = (id: any) => {

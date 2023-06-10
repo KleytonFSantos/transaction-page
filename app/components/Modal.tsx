@@ -39,7 +39,8 @@ export default function TransactionModal({
 
 
   const onSubmit: SubmitHandler<EditTransactionFormSchemaType> = (data) => {
-    saveTransaction.mutate(data, transactionId);
+    data.id = transactionId;
+    saveTransaction.mutate(data);
     onClose();
   };
 

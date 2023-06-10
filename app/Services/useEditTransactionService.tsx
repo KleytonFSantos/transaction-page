@@ -14,11 +14,12 @@ export function useSaveTransaction() {
   const queryClient = useQueryClient();
 
   const saveTransaction = useMutation(
-    (transaction: EditTransactionFormSchemaType, transactionId: number | undefined) => {
-      const url = transactionId
-        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${transactionId}`
+    (transaction: EditTransactionFormSchemaType) => {
+      console.log(transaction);
+      const url = transaction.id
+        ? process.env.NEXT_PUBLIC_API_BASE_URL + "update-transaction/" + transaction.id
         : process.env.NEXT_PUBLIC_API_BASE_URL + "add-transaction";
-      const method = transactionId ? "PUT" : "POST";
+      const method = transaction.id ? "PUT" : "POST";
 
       return axios.request({
         url,
