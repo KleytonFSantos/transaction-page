@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import { EditTransactionFormSchemaType } from "../components/Modal";
 
-const token = localStorage.getItem("token");
+const token: string | null = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 const config = {
   headers: {

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useMutation, useQueryClient } from "react-query";
 import { useRouter } from "next/navigation";
 
-const token = localStorage.getItem("token");
+const token: string | null = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 const config = {
   headers: {
