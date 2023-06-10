@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 function Providers({ children }: React.PropsWithChildren) {
   const [client] = React.useState(
-    new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
+    new QueryClient({ defaultOptions: { queries: { staleTime: 60 * 1000 } } })
   );
 
   return (

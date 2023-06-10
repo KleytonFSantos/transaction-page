@@ -2,25 +2,22 @@
 import TransactionNavbar from "../components/Dashboard/Navbar";
 import TransactionTable from "../components/Dashboard/TransactionTable";
 import TransactionCard from "../components/Dashboard/Card";
-import axios from "axios";
 import { useQuery } from "react-query";
-
-const getTransactions = async () => {
-  const res = await axios.get("http://api-docker.online/api/teste");
-  return res.data;
-};
+import { getTransactionsService } from "../Services/getTransactionsService";
 
 export default function Dashboard() {
+  const { getTransactions } = getTransactionsService();
+
   const { data, isLoading, error } = useQuery("transactions", getTransactions);
 
   const expenses = data?.filter((item: any) => item.type === "expense");
   const totalExpenses = expenses?.reduce(
-    (acc: number, item: any) => acc + item.amount,
+    (acc: number, item: any) => acc + parseFloat(item.amount),
     0
   );
   const incomes = data?.filter((item: any) => item.type === "income");
   const totalIncomes = incomes?.reduce(
-    (acc: number, item: any) => acc + item.amount,
+    (acc: number, item: any) => acc + parseFloat(item.amount),
     0
   );
 

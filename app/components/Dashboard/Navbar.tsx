@@ -1,6 +1,12 @@
+import { useLogoutUser } from "@/app/Services/useLogoutService";
 import { Navbar } from "flowbite-react";
 
 export default function TransactionNavbar() {
+  const logout = useLogoutUser()
+
+  const handleLogout = () => {
+   logout.mutate();
+  };
   return (
     <Navbar fluid rounded>
     <Navbar.Brand href="https://flowbite-react.com">
@@ -8,15 +14,9 @@ export default function TransactionNavbar() {
     </Navbar.Brand>
     <Navbar.Toggle />
     <Navbar.Collapse>
-      <Navbar.Link active href="#">
-        <p>Home</p>
+      <Navbar.Link onClick={handleLogout}>
+        <p>Logout</p>
       </Navbar.Link>
-      <Navbar.Link href="#">
-        <p>About</p>
-      </Navbar.Link>
-      <Navbar.Link href="#">Services</Navbar.Link>
-      <Navbar.Link href="#">Pricing</Navbar.Link>
-      <Navbar.Link href="#">Contact</Navbar.Link>
     </Navbar.Collapse>
   </Navbar>
   );
