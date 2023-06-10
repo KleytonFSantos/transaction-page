@@ -14,6 +14,7 @@ export function useLoginUser() {
     },
     {
       onSuccess: (data) => {
+        queryClient.invalidateQueries("transactions");
         router.push("/dashboards");
         const token = data.data.token;
         localStorage.setItem("token", token);

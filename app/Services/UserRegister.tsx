@@ -2,6 +2,6 @@ import axios from "axios";
 import { FormSchemaType } from "../register/page";
 
 export const createUser = async (user: FormSchemaType) => {
-    const response = await axios.post("https://transaction-api-ma1f.onrender.com/api/" + 'register', user)
+    const response = await axios.post(process.env.NEXT_PUBLIC_API_BASE_URL + 'register', user)
     return response.data;
 }
