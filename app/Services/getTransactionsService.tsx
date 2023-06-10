@@ -11,7 +11,7 @@ export const getTransactionsService = () => {
 
   const getTransactions = async () => {
     const res = await axios.get(
-     "https://transaction-api-ma1f.onrender.com/api/" + "transactions",
+      process.env.NEXT_PUBLIC_API_BASE_URL + "transactions",
       config
     );
     return res.data;

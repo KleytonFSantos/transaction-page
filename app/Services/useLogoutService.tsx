@@ -19,7 +19,7 @@ export function useLogoutUser() {
   const logout = useMutation(
     () => {  
       return axios.get(
-        "https://transaction-api-ma1f.onrender.com/api/" + "logout",
+        process.env.NEXT_PUBLIC_API_BASE_URL + "logout",
         config
       );
     },

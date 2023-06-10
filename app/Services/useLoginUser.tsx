@@ -10,7 +10,7 @@ export function useLoginUser() {
 
   const login = useMutation(
     (user: FormSchemaType) => {
-      return axios.post("https://transaction-api-ma1f.onrender.com/api/" + "login", user);
+      return axios.post(process.env.NEXT_PUBLIC_API_BASE_URL + "login", user);
     },
     {
       onSuccess: (data) => {

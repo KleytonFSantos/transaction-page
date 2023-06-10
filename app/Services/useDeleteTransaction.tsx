@@ -15,7 +15,7 @@ export function useDeleteTransaction() {
   const deleteTransaction = useMutation(
     (transactionId: number | undefined) => {
       return axios.delete(
-        "https://transaction-api-ma1f.onrender.com/api/" + "delete-transaction/" + transactionId,
+        process.env.NEXT_PUBLIC_API_BASE_URL + "delete-transaction/" + transactionId,
         config
       );
     },
