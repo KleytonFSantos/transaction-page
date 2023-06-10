@@ -8,7 +8,7 @@ type InputProps = {
 }
 
 // eslint-disable-next-line react/display-name
-export const Input: React.FC<InputProps> = forwardRef(({ label, name, type, ...props}: InputProps, ref) => {
+export const Input = forwardRef<HTMLInputElement>(({ label, name, type, ...props}: any, ref) => {
     return (
       <div>
         <label
