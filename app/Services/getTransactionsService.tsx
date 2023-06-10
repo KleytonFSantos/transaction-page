@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getTransactionsService = () => {
-  const token: string | null = typeof localStorage !== 'undefined' ? localStorage.getItem("token") : null;
+  const token: string | null = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   const config = {
     headers: {
