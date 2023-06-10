@@ -29,7 +29,7 @@ export default function TransactionCard({ title, value }: CardProps) {
         </a>
         <div className="flex items-center justify-between">
           <span className="text-sm font-bold text-gray-900 dark:text-white">
-            R$ {value?.toFixed(2).toString().replace(".", ",")}
+            R$ {value?.toString().replace(".", ",")}
           </span>
         </div>
         {title !== "Total" ? <button className="text-xs">Add +</button> : ""}
