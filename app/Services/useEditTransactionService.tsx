@@ -17,8 +17,8 @@ export function useSaveTransaction() {
     (transaction: EditTransactionFormSchemaType) => {
       console.log(transaction);
       const url = transaction.id
-        ? "http://api-docker.online/api/" + "update-transaction/" + transaction.id
-        : "http://api-docker.online/api/" + "add-transaction";
+        ? "https://transaction-api-ma1f.onrender.com/api/" + "update-transaction/" + transaction.id
+        : "https://transaction-api-ma1f.onrender.com/api/" + "add-transaction";
       const method = transaction.id ? "PUT" : "POST";
 
       return axios.request({

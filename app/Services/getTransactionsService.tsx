@@ -11,7 +11,7 @@ export const getTransactionsService = () => {
 
   const getTransactions = async () => {
     const res = await axios.get(
-     "http://api-docker.online/api/" + "transactions",
+     "https://transaction-api-ma1f.onrender.com/api/" + "transactions",
       config
     );
     return res.data;

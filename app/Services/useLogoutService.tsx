@@ -19,7 +19,7 @@ export function useLogoutUser() {
   const logout = useMutation(
     () => {  
       return axios.get(
-        "http://api-docker.online/api/" + "logout",
+        "https://transaction-api-ma1f.onrender.com/api/" + "logout",
         config
       );
     },

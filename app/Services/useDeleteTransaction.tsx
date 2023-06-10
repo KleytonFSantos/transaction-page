@@ -15,7 +15,7 @@ export function useDeleteTransaction() {
   const deleteTransaction = useMutation(
     (transactionId: number | undefined) => {
       return axios.delete(
-        "http://api-docker.online/api/" + "delete-transaction/" + transactionId,
+        "https://transaction-api-ma1f.onrender.com/api/" + "delete-transaction/" + transactionId,
         config
       );
     },
