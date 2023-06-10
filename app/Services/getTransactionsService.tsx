@@ -11,7 +11,7 @@ export const getTransactionsService = () => {
 
   const getTransactions = async () => {
     const res = await axios.get(
-      process.env.PUBLIC_API_BASE_URL + "transactions",
+     "http://api-docker.online/api/" + "transactions",
       config
     );
     return res.data;

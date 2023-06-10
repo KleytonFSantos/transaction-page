@@ -19,7 +19,7 @@ export function useLogoutUser() {
   const logout = useMutation(
     () => {  
       return axios.get(
-        process.env.PUBLIC_API_BASE_URL + "logout",
+        "http://api-docker.online/api/" + "logout",
         config
       );
     },

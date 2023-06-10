@@ -17,8 +17,8 @@ export function useSaveTransaction() {
     (transaction: EditTransactionFormSchemaType) => {
       console.log(transaction);
       const url = transaction.id
-        ? process.env.PUBLIC_API_BASE_URL + "update-transaction/" + transaction.id
-        : process.env.PUBLIC_API_BASE_URL + "add-transaction";
+        ? "http://api-docker.online/api/" + "update-transaction/" + transaction.id
+        : "http://api-docker.online/api/" + "add-transaction";
       const method = transaction.id ? "PUT" : "POST";
 
       return axios.request({

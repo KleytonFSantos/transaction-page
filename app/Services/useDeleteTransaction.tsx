@@ -15,7 +15,7 @@ export function useDeleteTransaction() {
   const deleteTransaction = useMutation(
     (transactionId: number | undefined) => {
       return axios.delete(
-        process.env.PUBLIC_API_BASE_URL + "delete-transaction/" + transactionId,
+        "http://api-docker.online/api/" + "delete-transaction/" + transactionId,
         config
       );
     },
