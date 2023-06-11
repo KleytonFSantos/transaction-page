@@ -4,6 +4,7 @@ import TransactionTable from "../components/Dashboard/TransactionTable";
 import TransactionCard from "../components/Dashboard/Card";
 import { useQuery } from "react-query";
 import { getTransactionsService } from "../Services/getTransactionsService";
+import Container from "postcss/lib/container";
 
 export default function Dashboard() {
   const { getTransactions } = getTransactionsService();
@@ -21,19 +22,24 @@ export default function Dashboard() {
     0
   );
 
-  const totalValue = (totalIncomes - totalExpenses)
+  const totalValue = totalIncomes - totalExpenses;
 
   return (
-    <>
-      <TransactionNavbar />
-      <div className="flex gap-2 justify-center p-2">
-        <TransactionCard title="Incomes" value={totalIncomes} />
-        <TransactionCard title="Expenses" value={totalExpenses} />
-        <TransactionCard title="Total" value={Number.isNaN(totalValue) ? 0 : totalValue} />
+    <div className="lg:w-full justify-center items-center flex">
+      <div className="lg:w-2/3">
+        <TransactionNavbar />
+        <div className="flex gap-2 justify-center p-2 mt-11">
+          <TransactionCard title="Incomes" value={totalIncomes} />
+          <TransactionCard title="Expenses" value={totalExpenses} />
+          <TransactionCard
+            title="Total"
+            value={Number.isNaN(totalValue) ? 0 : totalValue}
+          />
+        </div>
+        <div className="p-2">
+          <TransactionTable data={data} />
+        </div>
       </div>
-      <div className="p-2">
-        <TransactionTable data={data} />
-      </div>
-    </>
+    </div>
   );
 }
