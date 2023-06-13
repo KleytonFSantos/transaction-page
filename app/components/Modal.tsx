@@ -9,6 +9,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./Button";
 import { useSaveTransaction } from "../Services/useEditTransactionService";
+import CircleSVG from "./CircleSVG";
 
 type Props = {
   open: boolean;
@@ -35,14 +36,22 @@ export default function TransactionModal({
   } = useForm<EditTransactionFormSchemaType>({
     resolver: zodResolver(transactionSchema),
   });
-  const saveTransaction = useSaveTransaction();
 
+  const saveTransaction = useSaveTransaction();
 
   const onSubmit: SubmitHandler<EditTransactionFormSchemaType> = (data) => {
     data.id = transactionId;
     saveTransaction.mutate(data);
     onClose();
   };
+
+  if (isSubmitting) {
+    return (
+      <div className="flex min-h-screen flex-1 align-middle justify-center px-6 py-12 lg:px-8">
+        <CircleSVG />
+      </div>
+    );
+  }
 
   return (
     <Modal dismissible show={open} onClose={onClose} className="w-auto p-2">

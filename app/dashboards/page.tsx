@@ -4,25 +4,23 @@ import TransactionTable from "../components/Dashboard/TransactionTable";
 import TransactionCard from "../components/Dashboard/Card";
 import { useQuery } from "react-query";
 import { getTransactionsService } from "../Services/getTransactionsService";
-import Container from "postcss/lib/container";
+import { transactionCalculations } from "../utils/transactionCalculations";
+import CircleSVG from "../components/CircleSVG";
 
 export default function Dashboard() {
   const { getTransactions } = getTransactionsService();
 
   const { data, isLoading, error } = useQuery("transactions", getTransactions);
 
-  const expenses = data?.filter((item: any) => item.type === "expense");
-  const totalExpenses = expenses?.reduce(
-    (acc: number, item: any) => acc + parseFloat(item.amount),
-    0
-  );
-  const incomes = data?.filter((item: any) => item.type === "income");
-  const totalIncomes = incomes?.reduce(
-    (acc: number, item: any) => acc + parseFloat(item.amount),
-    0
-  );
+  const { totalExpenses, totalIncomes, totalValue } = transactionCalculations(data)
 
-  const totalValue = totalIncomes - totalExpenses;
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen flex-1 align-middle justify-center px-6 py-12 lg:px-8">
+        <CircleSVG />
+      </div>
+    );
+  }
 
   return (
     <div className="lg:w-full justify-center items-center flex">

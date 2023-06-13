@@ -21,7 +21,7 @@ export default function TransactionCard({ title, value }: CardProps) {
 
   return (
     <>
-      <Card className={"lg:w-1/3" + (title !== "Total" ? " cursor-pointer " : "") } onClick={handleOpenModal}>
+      <Card className={"lg:w-1/3 w-1/3" + (title !== "Total" ? " cursor-pointer " : "") } onClick={handleOpenModal}>
         <a href="#">
           <h5 className="text-xs font-semibold tracking-tight text-gray-900 dark:text-white">
             <p>{title}</p>

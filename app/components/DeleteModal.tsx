@@ -3,6 +3,7 @@ import { Modal } from "flowbite-react";
 import React from "react";
 import { Button } from "./Button";
 import { useDeleteTransaction } from "../Services/useDeleteTransaction";
+import CircleSVG from "./CircleSVG";
 
 type Props = {
   transactionId: number | undefined;
@@ -10,18 +11,26 @@ type Props = {
   onClose: () => void;
 };
 
-
 export default function DeleteModal({
   transactionId,
   handleOpen,
   onClose,
 }: Props) {
-    const deleteTransaction = useDeleteTransaction();
+  const deleteTransaction = useDeleteTransaction();
 
-    const handleDeleteTransaction = () => {
-        deleteTransaction.mutate(transactionId)
-        onClose();
-    }
+  const handleDeleteTransaction = () => {
+    deleteTransaction.mutate(transactionId);
+    onClose();
+  };
+
+  if (deleteTransaction.isLoading) {
+    return (
+      <div className="flex min-h-screen flex-1 align-middle justify-center px-6 py-12 lg:px-8">
+        <CircleSVG />
+      </div>
+    );
+  }
+  
   return (
     <Modal
       dismissible
