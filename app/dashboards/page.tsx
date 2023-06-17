@@ -35,7 +35,7 @@ export default function Dashboard() {
           />
         </div>
         <div className="p-2">
-          <TransactionTable data={data} />
+          <TransactionTable transactions={data} />
         </div>
       </div>
     </div>
