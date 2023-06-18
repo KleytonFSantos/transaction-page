@@ -31,6 +31,7 @@ export function useSaveTransaction() {
     {
       onSuccess: () => {
         queryClient.invalidateQueries("transactions");
+        queryClient.invalidateQueries("filteredTransactions");
       },
       onError: () => {
         console.log("error");

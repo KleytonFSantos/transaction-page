@@ -22,6 +22,7 @@ export function useDeleteTransaction() {
     {
       onSuccess: () => {
         queryClient.invalidateQueries("transactions");
+        queryClient.invalidateQueries("filteredTransactions");
       },
     }
   );
