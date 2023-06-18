@@ -60,7 +60,7 @@ export const Filters = ({ onSubmitHandler, register }: Props) => {
           {isInputActive ? (
             <input
               id="default-search"
-              placeholder="From Date"
+              placeholder="Date From"
               className="w-1/5 p-4 pl-10 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="date"
               {...register("dateFrom")}
@@ -70,7 +70,7 @@ export const Filters = ({ onSubmitHandler, register }: Props) => {
           ) : (
             <input
               id="startDate"
-              placeholder="To Date"
+              placeholder="Date From"
               {...register("dateFrom")}
               className="w-1/5 p-4 pl-10 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="text"
@@ -81,7 +81,7 @@ export const Filters = ({ onSubmitHandler, register }: Props) => {
           {isInputActive ? (
             <input
               id="endDate"
-              placeholder="End Date"
+              placeholder="Date To"
               className="w-1/5 p-4 pl-10 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="date"
               {...register("dateTo")}
@@ -91,7 +91,7 @@ export const Filters = ({ onSubmitHandler, register }: Props) => {
           ) : (
             <input
               id="default-search"
-              placeholder="End date"
+              placeholder="Date To"
               {...register("dateTo")}
               className="w-1/5 rounded-r-lg p-4 pl-10 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="text"
